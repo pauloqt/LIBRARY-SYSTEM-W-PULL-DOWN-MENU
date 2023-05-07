@@ -8,7 +8,6 @@
 #include "designFunctions.c"
 
 HWND WINAPI GetConsoleWindowNT(void);
-//PARA SA LAHAT
 
 //The gotoxy() function is used to position the console cursor to a specified location, with the x-coordinate and y-coordinate specified as arguments.
 void gotoxy(int x,int y){   //A function that Sets the fixed place of displays

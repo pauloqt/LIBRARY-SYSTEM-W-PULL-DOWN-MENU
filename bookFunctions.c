@@ -395,28 +395,6 @@ BOOK *p;
     fclose(fp);
 }
 
-//The menuBook() function displays the main menu of the library catalog program and prompts the user to enter a choice. It returns the user's choice.
-int menuBook(int choice){
-    while(choice<1 || choice>6){
-        system("cls");
-        printf("\tMANAGE BOOK RECORD\n");
-        printf("\nMENU");
-        printf("\n[1] ADD RECORD");
-        printf("\n[2] UPDATE RECORD");
-        printf("\n[3] DELETE RECORD");
-        printf("\n[4] SEARCH RECORD");
-        printf("\n[5] DISPLAY ALL RECORDS");
-        printf("\n[6] GO BACK");
-        printf("\nENTER OPTION: ");
-        scanf("%d", &choice);
-        if(choice<1 || choice>6){
-            printf("\nSELECT 1-6 ONLY!\n");
-            system("pause");
-        }
-    }
-    return choice;
-}
-
 void manageBookMenu(){
 BOOK *p;
 setFontStyle(18);

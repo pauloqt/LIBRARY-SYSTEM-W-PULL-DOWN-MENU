@@ -1,25 +1,5 @@
 #include "transactionFunctions.h"
 
-//menuTransaction() displays the menu all the operations the admin can do on transaction records.
-int menuTransaction(int choice){
-    while(choice<1 || choice>4){
-        system("cls");
-        printf("TRANSACTION RECORD");
-        printf("\nMENU");
-        printf("\n[1] EDIT STATUS");
-        printf("\n[2] SEARCH BORROWING RECORD");
-        printf("\n[3] DISPLAY ALL BORROWING RECORD");
-        printf("\n[4] GO BACK");
-        printf("\nENTER OPTION: ");
-        scanf("%d", &choice);
-        if(choice<1 || choice>4){
-            printf("\nSELECT 1-4 ONLY!\n");
-            system("pause");
-        }
-    }
-    return choice;
-}
-
 //borrowBook() asks the borrower about all the necessary information on borrowing transaction (transaction attributes).
 void borrowBook(char ID[7]){
 BOOK *pBook;

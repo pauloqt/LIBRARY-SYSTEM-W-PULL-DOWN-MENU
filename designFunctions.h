@@ -20,8 +20,6 @@
     void dispeditStats();
     void searchTransac();
     void dispTransac();
-    //void dispBorrowingRec();
-    //void dispSearchBorrowing();
     void dispUpdateBorrowing();
     void dispDelete();
 
