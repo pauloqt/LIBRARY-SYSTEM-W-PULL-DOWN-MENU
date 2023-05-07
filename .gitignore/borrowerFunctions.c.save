@@ -342,13 +342,13 @@ int updateInt;
     system("cls");
     dispUpdate();
     gotoxy(30,9);printf("\033[31m ___________________________________________________________________________________________________________________");
-    gotoxy(30,);printf("|   _                                                                                                               |");
-    gotoxy(30,7);printf("|  (_)  ENTER YOUR TUP ID:                                                                                          |");
-    gotoxy(30,8);printf("|    \\                                                                                                              |");
-    gotoxy(30,9);printf("|___________________________________________________________________________________________________________________|");
+    gotoxy(30,10);printf("|   _                                                                                                               |");
+    gotoxy(30,11);printf("|  (_)  ENTER YOUR TUP ID:                                                                                          |");
+    gotoxy(30,12);printf("|    \\                                                                                                              |");
+    gotoxy(30,13);printf("|___________________________________________________________________________________________________________________|");
     printf("\033[0m");
 
-    gotoxy(61,7);scanf("%s", TUP_ID);
+    gotoxy(61,11);scanf("%s", TUP_ID);
     p = locateTUP_ID(TUP_ID);
 
     if(p==NULL){
@@ -682,7 +682,7 @@ hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
                     case 3:
                     {
                        ShowConsoleCursor(1);
-                        adminPortalMenu();
+                        PortalMenu(
                         break;
                     }
 
