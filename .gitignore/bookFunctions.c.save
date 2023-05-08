@@ -381,6 +381,10 @@ BOOK *p;
                   //\n%[^\n]\n%[^\n]\n", &info.title, &info.author, &info.category);;
             fscanf(fp, "%s %s %s %d %d %d", &infoBook.material, &infoBook.year, &infoBook.refNum, &infoBook.shelfNo, &infoBook.totalStock, &infoBook.borrower);
 
+            //decrypting the retrieved info.
+            //strcpy(info.title, decrypt(info.title)); strcpy(info.author, decrypt(info.author)); strcpy(info.category, decrypt(info.category));
+            //strcpy(info.year, decrypt(info.year)); strcpy(info.ISBN, decrypt(info.ISBN));
+
             if(!feof(fp)){
                 addBook();
                 fflush stdin;
@@ -449,6 +453,7 @@ hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
                     case 1:
                     {
                         ShowConsoleCursor(1);
+                        //dispUpdateRec();
                         updateBook(); saveBook();
                         break;
                     }

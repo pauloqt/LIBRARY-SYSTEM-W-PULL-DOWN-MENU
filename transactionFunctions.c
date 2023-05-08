@@ -249,9 +249,6 @@ TRANSACTION *p;
             fflush stdin;
             fscanf(fp, "%s %s %s %s\n", infoTransaction.TUP_ID, infoTransaction.dateBorrowed, infoTransaction.dateToReturn, infoTransaction.librarian);
             fscanf(fp, "%[^\n]", &infoTransaction.status);
-            //decrypting the retrieved info.
-            //strcpy(info.title, decrypt(info.title)); strcpy(info.author, decrypt(info.author)); strcpy(info.category, decrypt(info.category));
-            //strcpy(info.year, decrypt(info.year)); strcpy(info.ISBN, decrypt(info.ISBN));
 
             if(!feof(fp)){
                 addTransaction();
@@ -382,7 +379,7 @@ TRANSACTION *q;
                     case 3:
                     {
                         ShowConsoleCursor(1);
-                        adminPortalMenu();
+                        return;
                         break;
                     }
 

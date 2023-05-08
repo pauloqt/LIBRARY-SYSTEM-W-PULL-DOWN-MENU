@@ -682,7 +682,7 @@ hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
                     case 3:
                     {
                        ShowConsoleCursor(1);
-                        adminPortalMenu();
+                        return;
                         break;
                     }
 

@@ -8,13 +8,13 @@ void mainFront(){
 
 
 
-                    oooooooooooo  ooooo     ooo ooooooooo.        ooooooooo.  oooooooooooo       .o.       oooooooooo.    .oooooo..o")
-                    8'  888   `8 `888'     `8' `888   `Y88.      `888   `Y88. `888'     `8      .888.      `888'   `Y8b  d8P'    `Y8")
-                        888       888       8   888   .d88'       888   .d88'  888             .8\"888.     888      888 Y88bo.   ")
-                        888       888       8   888ooo88P'        888ooo88P'   888oooo8       .8' `888.     888      888  `\"Y8888o.")
-                        888       888       8   888               888`88b.     888    \"     .88ooo8888.    888      888     `\"Y88b ")
-                        888       `88.    .8'   888               888  `88b.   888       o  .8'     `888.   888     d88' oo     .d8P")
-                       o888o        `YbodP'    o888o             o888o  o888o o888ooooood8 o88o     o8888o o888bood8P'   8\"\"88888P\"")
+                    oooooooooooo  ooooo     ooo ooooooooo.        ooooooooo.  oooooooooooo       .o.       oooooooooo.    .oooooo..o
+                    8'  888   `8 `888'     `8' `888   `Y88.      `888   `Y88. `888'     `8      .888.      `888'   `Y8b  d8P'    `Y8
+                        888       888       8   888   .d88'       888   .d88'  888             .8\"888.     888      888 Y88bo.
+                        888       888       8   888ooo88P'        888ooo88P'   888oooo8       .8' `888.     888      888  `\"Y8888o.
+                        888       888       8   888               888`88b.     888    \"     .88ooo8888.    888      888     `\"Y88b
+                        888       `88.    .8'   888               888  `88b.   888       o  .8'     `888.   888     d88' oo     .d8P
+                       o888o        `YbodP'    o888o             o888o  o888o o888ooooood8 o88o     o8888o o888bood8P'   8\"\"88888P\
 
 
                                                     "USE UP OR DOWN ARROW KEYS TO NAVIGATE THROUGH MENU"
@@ -138,6 +138,7 @@ void dispManageBorrowing(){
 
 void dispManageBorrowers(){
   gotoxy(10,3);printf(R"EOF(
+
             __  __    _    _  _    _    ___  ___   ___   ___   ___  ___   ___ __      __ ___  ___   ___  ___  ___  ___   ___  ___
            |  \/  |  /_\  | \| |  /_\  / __|| __| | _ ) / _ \ | _ \| _ \ / _ \\ \    / /| __|| _ \ | _ \| __|/ __|/ _ \ | _ \|   \
            | |\/| | / _ \ | .` | / _ \| (_ || _|  | _ \| (_) ||   /|   /| (_) |\ \/\/ / | _| |   / |   /| _|| (__| (_) ||   /| |) |
