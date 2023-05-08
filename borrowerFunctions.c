@@ -477,14 +477,14 @@ void loginAdmin(){
 
     while (tries > 0 && flag == 0) {
         system("cls");
-        printf("LOG IN");
+        dispLogin();
         gotoxy(55,15); printf("ENTER ADMIN PASSWORD: ");
         passDisp();
         strcpy(enteredPass, encryptedPass);
 
         if (strcmp(enteredPass, defaultPass) == 0) {
-            gotoxy(55,17); printf("LOGIN SUCCESSFUL!");
-            system("pause");
+            gotoxy(55,17); printf("LOGIN SUCCESSFUL!\n");
+            gotoxy(55,19);system("pause");
             flag = 1;
         } else {
             gotoxy(55,17); printf("INVALID ADMIN PASSWORD. ");

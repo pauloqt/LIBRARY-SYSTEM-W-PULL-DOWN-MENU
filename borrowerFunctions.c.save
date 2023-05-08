@@ -477,13 +477,13 @@ void loginAdmin(){
 
     while (tries > 0 && flag == 0) {
         system("cls");
-        printf("LOG IN");
+        dispLogin();
         gotoxy(55,15); printf("ENTER ADMIN PASSWORD: ");
         passDisp();
         strcpy(enteredPass, encryptedPass);
 
         if (strcmp(enteredPass, defaultPass) == 0) {
-            gotoxy(55,17); printf("LOGIN SUCCESSFUL!");
+            gotoxy(55,17); printf("LOGIN SUCCESSFUL!\n");
             system("pause");
             flag = 1;
         } else {
@@ -499,6 +499,8 @@ void loginAdmin(){
         gotoxy(55,21); printf("YOU HAVE EXCEEDED THE MAXIMUM NUMBER OF TRIES.\n");
         gotoxy(55,22); system("pause");
     }
+    
+    system()
 }
 
 //encrypt() creates a copy of the original string, encrypts the copy, and returns the encrypted copy.

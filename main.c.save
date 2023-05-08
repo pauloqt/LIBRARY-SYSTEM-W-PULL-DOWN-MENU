@@ -180,6 +180,7 @@ hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     while(1){
         system("cls");
         dispAdminPortal();
+        LO
         ShowConsoleCursor(0);//SET CURSOR OFF
         for(int i=0; i<5; ++i){
             //This will highlight the choice in the menu
@@ -257,7 +258,7 @@ MoveWindow(hWnd,900,900,2000,2000,TRUE);
 int optionPortal, optionAdmin, optionStudent;
 //for pull down
 setFontStyle(18);
-char Menu[][50] =  {"\n\n\n\n\n\t\t\t\t\t\t\t\t\t\tSTUDENT PORTAL\n  ", "\n\n\n\n\n\t\t\t\t\t\t\tADMIN PORTAL\n ", "\n\n\n\n\n\t\t\t\t\t\t\tEXIT\n " };
+char Menu[][50] =  {"\n\n\n\n\n\t\t\t\t\t\t\t\tSTUDENT PORTAL\n  ", "\n\n\n\n\n\t\t\t\t\t\t\t\tADMIN PORTAL\n ", "\n\n\n\n\n\t\t\t\t\t\t\t\tEXIT\n " };
 int pointer = 0;
 const char ENTER = 13;//ASCII code for ENTER Key
 char ch = ' ';

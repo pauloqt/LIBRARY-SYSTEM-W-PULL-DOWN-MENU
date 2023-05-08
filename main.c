@@ -177,6 +177,9 @@ char ch = ' ';
 HANDLE  hConsole;
 hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
+    dispAdminPortal();
+    loginAdmin();
+
     while(1){
         system("cls");
         dispAdminPortal();
