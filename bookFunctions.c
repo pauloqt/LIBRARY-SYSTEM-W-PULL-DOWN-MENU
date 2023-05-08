@@ -25,9 +25,10 @@ void getInfoBook(){
     gotoxy(40,19);printf("ENTER SHELF NO.: ");
     gotoxy(60,19);scanf("%d", &infoBook.shelfNo);
     gotoxy(40,20);printf("ENTER TOTAL NO. STOCK: ");
-    gotoxy(67,21);scanf("%d", &infoBook.totalStock);
-    gotoxy(40,22);printf("ENTER TOTAL NO. OF BORROWER: ");
-    gotoxy(75,22);("%d", &infoBook.borrower);
+    gotoxy(67,20);scanf("%d", &infoBook.totalStock);
+    gotoxy(40,21);printf("ENTER TOTAL NO. OF BORROWER: ");
+    gotoxy(70,21);scanf("%d", &infoBook.borrower);
+    gotoxy(40,24);system("pause");
 }
 
 

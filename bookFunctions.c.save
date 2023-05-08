@@ -27,7 +27,8 @@ void getInfoBook(){
     gotoxy(40,20);printf("ENTER TOTAL NO. STOCK: ");
     gotoxy(67,21);scanf("%d", &infoBook.totalStock);
     gotoxy(40,22);printf("ENTER TOTAL NO. OF BORROWER: ");
-    gotoxy(75,22);("%d", &infoBook.borrower);
+    gotoxy(70,22);scanf("%d", &infoBook.borrower);
+    system("pause");
 }
 
 
@@ -262,7 +263,7 @@ char* categoryPointer;
     fflush stdin;
     system("cls");
     printf("\033[0m");
-    dispSearch();
+    dispSearchBooks();
 
     gotoxy(30,10);printf("\033[31m ___________________________________________________________________________________________________________________");
     gotoxy(30,11);printf("|   _                                                                                                               |");

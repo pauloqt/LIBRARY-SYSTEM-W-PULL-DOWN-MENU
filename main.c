@@ -7,6 +7,26 @@
 #include "transactionFunctions.c"
 #include "designFunctions.c"
 
+/*
+    TUP READS -  A Library catalog for TUPians
+    This program aims to automate the inventory and transactions to ease both students and admin
+
+    Language: C program
+    Data Structure: Linked list
+    Structs: Struct book, borrower, and transaction.
+    basic operations: Add, update, search, delete, display
+    Interface: Command line and Drop-down menu
+
+    Created by:
+    Alcantara, John Paulo C.
+    Aspiras, Alexis Glenn
+    Leonen, Abbegail Miles
+    Ygot Laica B.
+    Section: BSCS-NS-2AB
+
+*/
+
+
 HWND WINAPI GetConsoleWindowNT(void);
 
 //The gotoxy() function is used to position the console cursor to a specified location, with the x-coordinate and y-coordinate specified as arguments.
