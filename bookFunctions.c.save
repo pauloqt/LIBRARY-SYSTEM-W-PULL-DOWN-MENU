@@ -262,7 +262,7 @@ char* categoryPointer;
     fflush stdin;
     system("cls");
     printf("\033[0m");
-    dispSearchBooks();
+    dispSearch();
 
     gotoxy(30,10);printf("\033[31m ___________________________________________________________________________________________________________________");
     gotoxy(30,11);printf("|   _                                                                                                               |");
