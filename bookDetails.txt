@@ -18,3 +18,91 @@ Paulo
 Fiction
 Book 1993 12309467 3 2 2
 
+To Kill a Mockingbird
+Harper Lee
+Fiction
+Paperback 1960 9780446310789 1 50 5
+
+The Catcher in the Rye
+J.D. Salinger
+Fiction
+Hardcover 1951 9780316769174 2 30 10
+
+The Lord of the Rings
+J.R.R. Tolkien
+Fantasy
+Paperback 1954 9780618640157 3 100 20
+
+To All the Boys
+Jenny Han
+Young Adult Fiction
+Paperback 2014 9781442426719 4 20 2
+
+The Da Vinci Code
+Dan Brown
+Mystery Thriller
+Hardcover 2003 9780385504201 5 40 15
+
+1984
+George Orwell
+Dystopian Fiction
+Paperback 1949 9780451524935 6 50 8
+
+Pride and Prejudice
+Jane Austen
+Romance
+Paperback 1813 9780141439518 7 40 6
+
+The Great Gatsby
+F. Scott Fitzgerald
+Classic Literature
+Paperback 1925 9780743273565 8 30 4
+
+To Kill a Kingdom
+Alexandra Christo
+Young Adult Fantasy
+Paperback 2018 9781250112682 2 25 3
+
+Brave New World
+Aldous Huxley
+Dystopian Fiction
+Paperback 1932 9780060850524 5 50 12
+
+Moby-Dick
+Herman Melville
+Adventure
+Hardcover 1851 9780142000083 3 30 6
+
+The Hobbit
+J.R.R. Tolkien
+Fantasy
+Paperback 1937 9780261102217 4 60 8
+
+Frankenstein
+Mary Shelley
+Gothic Horror
+Paperback 1818 9780141439471 5 40 4
+
+1984
+George Orwell
+Dystopian Fiction
+E-book 1949 9780451524935 10 5 2
+
+The Adventures
+Mark Twain
+Adventure
+Paperback 1876 9780143039563 7 11 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
