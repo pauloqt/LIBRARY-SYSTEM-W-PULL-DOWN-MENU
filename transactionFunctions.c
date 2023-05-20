@@ -1,14 +1,14 @@
 #include "transactionFunctions.h"
 
 //borrowBook() asks the borrower about all the necessary information on borrowing transaction (transaction attributes).
-void borrowBook(char ID[7]){
+void borrowBook(){
 BOOK *pBook;
 BORROWER *pBorrower;
 TRANSACTION *pTransaction;
 char enteredBookRef[14];
 int ch;
 
-    pBorrower=locateTUP_ID(ID);
+    pBorrower=locateTUP_ID(loggedInID);
     pTransaction=headTransaction;
 
     system("cls");
@@ -20,13 +20,11 @@ int ch;
     pBook= locateBook(enteredBookRef);
 
     if(pBook==NULL){
-       gotoxy(40,20);printf("SELECTED BOOK IS NOT AVAILABLE\n"); system("pause");
-       studentPortalMenu();
+       gotoxy(40,20);printf("SELECTED BOOK IS NOT AVAILABLE\n"); gotoxy(40,21); system("pause");
     }
 
     else if(pBook->totalStock - pBook->borrower <=0){
-        gotoxy(40,22);printf("SELECTED BOOK IS OUT OF STOCK!\n"); system("pause");
-        studentPortalMenu();
+        gotoxy(40,22);printf("SELECTED BOOK IS OUT OF STOCK!\n");gotoxy(40,21); system("pause");
     }
 
     else{
@@ -63,10 +61,9 @@ int ch;
             gotoxy(40,30);printf("BORROWING TRANSACTION PROCESSED.");
             gotoxy(40,31);printf("PROCEED TO THE LIBRARIAN TO BORROW THE BOOK.\n");
             gotoxy(40,35);system("pause");
-            studentPortalMenu();
         }
         else{
-            studentPortalMenu();
+            return;
         }
 
     }
@@ -80,7 +77,7 @@ TRANSACTION *q, *p, *n;
     *n= infoTransaction;                           //copy info of the book to n.
 
     p=q=headTransaction;                           //point all pointers to head.
-    while(p!=NULL && strcmp(n->status, p->status)<=0){
+    while(p!=NULL && strcmp(n->status, p->status)<0){
         q=p;
         p=p->nxt;
     }
@@ -96,32 +93,40 @@ TRANSACTION *q, *p, *n;
 
 ////The searchTransaction() function prompts the user to enter a search a string, and then searches the linked list for any transaction whose title, author, or category matches the search term. It displays information about any matching books.
 void searchTransaction(){
-    TRANSACTION *p;
-    char toSearch[51];
-    int i, searchCategory;
-    char* categoryPointer;
+TRANSACTION *p;
+char toSearch[51];
+int i, searchCategory=0;
+char* categoryPointer;
 
-    system("cls");
-    dispSearch();
-    gotoxy(30,9);printf("\033[31m ___________________________________________________________________________________________________________________");
-    gotoxy(30,10);printf("|   _                                                                                                               |");
-    gotoxy(30,11);printf("|  (_)                                                                                                              |");
-    gotoxy(30,12);printf("|    \\                                                                                                              |");
-    gotoxy(30,13);printf("|___________________________________________________________________________________________________________________|");
-    printf("\033[0m");
+    while(searchCategory<1 || searchCategory>9){
 
-    gotoxy(76,15);printf("SEARCH BY CATEGORY");
-    gotoxy(76,16);printf("[1] Book Title");
-    gotoxy(76,17);printf("[2] Author");
-    gotoxy(76,18);printf("[3] Reference Number");
-    gotoxy(76,19);printf("[4] Borrower");
-    gotoxy(76,20);printf("[5] TUP ID");
-    gotoxy(76,21);printf("[6] Date Borrowed");
-    gotoxy(76,22);printf("[7] Date Return");
-    gotoxy(76,23);printf("[8] Librarian In-Charged");
-    gotoxy(76,24);printf("[9] Status");
-    gotoxy(38,11);printf("\033[31mENTER SEARCH CATEGORY [1-9]: ");
-    scanf("%d", &searchCategory);
+        system("cls");
+        dispSearch();
+        gotoxy(30,9);printf("\033[31m ___________________________________________________________________________________________________________________");
+        gotoxy(30,10);printf("|   _                                                                                                               |");
+        gotoxy(30,11);printf("|  (_)                                                                                                              |");
+        gotoxy(30,12);printf("|    \\                                                                                                              |");
+        gotoxy(30,13);printf("|___________________________________________________________________________________________________________________|");
+        printf("\033[0m");
+
+        gotoxy(76,15);printf("SEARCH BY CATEGORY");
+        gotoxy(76,16);printf("[1] Book Title");
+        gotoxy(76,17);printf("[2] Author");
+        gotoxy(76,18);printf("[3] Reference Number");
+        gotoxy(76,19);printf("[4] Borrower");
+        gotoxy(76,20);printf("[5] TUP ID");
+        gotoxy(76,21);printf("[6] Date Borrowed");
+        gotoxy(76,22);printf("[7] Date Return");
+        gotoxy(76,23);printf("[8] Librarian In-Charged");
+        gotoxy(76,24);printf("[9] Status");
+        gotoxy(38,11);printf("\033[31mENTER SEARCH CATEGORY [1-9]: ");
+        scanf("%d", &searchCategory);
+
+        if(searchCategory<1 || searchCategory>9){
+            gotoxy(30, 16); printf("SELECT FROM 1-9 ONLY!");
+            gotoxy(30, 17); system("pause");
+        }
+    }
 
     fflush stdin;
     system("cls");
@@ -299,7 +304,91 @@ char enteredID[7], enteredReference[14], returned[10]="RETURNED";
         gotoxy(55,20); printf("STATUS: %s", pTransac->status);
         pBook=locateBook(enteredReference);
         pBook->borrower-=1;
-        gotoxy(55,25); printf("RECORD SUCCESSFULLY EDITED\n"); gotoxy(45,26); system("pause");
+        gotoxy(55,22); printf("RECORD SUCCESSFULLY EDITED\n"); gotoxy(55,24); system("pause");
+    }
+}
+
+
+void borrowMenu(){
+char ID[7];
+setFontStyle(18);
+char Menu[][50] =  {"\n\n\n\n\n\t\t\t\t\t\t\tLOGIN", "\n\n\n\n\n\t\t\t\t\t\t\tREGISTER ", "\n\n\n\n\n\t\t\t\t\t\t\tGO BACK"};
+int pointer = 0;
+const char ENTER = 13;//ASCII code for ENTER Key
+char ch = ' ';
+HANDLE  hConsole;
+hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    while(1){
+        system("cls");
+        dispBorrowBooks();
+        ShowConsoleCursor(0);//SET CURSOR OF
+
+        for(int i=0; i<3; ++i){
+            //This will highlight the choice in the menu
+            if(i==pointer){
+                gotoxy(48,10+i);
+
+                SetConsoleTextAttribute(hConsole, 10);
+                printf("%s\n", Menu[i]);
+            }else{
+                gotoxy(48,10+i);
+                SetConsoleTextAttribute(hConsole, 15); // set color of the text to white
+                printf("%s\n",Menu[i]);
+            }
+             SetConsoleTextAttribute(hConsole, 15);
+        }
+        //This will check the key stroke that is being pressed in keyboard
+        while(1){
+            if(GetAsyncKeyState(VK_UP) != 0){
+                --pointer;
+
+                if(pointer == -1){
+                    pointer = 2;
+                    }
+                break;
+            }else if(GetAsyncKeyState(VK_DOWN) != 0){
+                ++pointer;
+                if(pointer == 3){
+                    pointer = 0;
+                }
+
+                break;
+            }else if((ch = getch()) == ENTER){
+                switch(pointer){
+                    case 0:
+                    {
+                        ShowConsoleCursor(1);
+                        loginBorrower();
+                        if(strcmp(loggedInID, "")!=0){
+                            borrowBook();
+                        }
+                        return;
+                        break;
+                    }
+                    case 1:
+                    {
+                        ShowConsoleCursor(1);
+                        getInfoBorrower();
+                        if(strcmp(loggedInID, "")!=0){  //If submitted ang registration
+                            loginBorrower();
+                        }
+                        if(strcmp(loggedInID, "")!=0){  //if naka-log in.
+                            borrowBook();
+                        }
+                        return;
+                        break;
+
+                    }
+
+                    case 2:
+                    {
+                        ShowConsoleCursor(1);
+                        return;
+                    }
+            }
+            }
+        }
     }
 }
 
@@ -356,7 +445,6 @@ TRANSACTION *q;
                     case 0:
                     {
                         ShowConsoleCursor(1);//SET CURSON ON
-                        //dispeditStats();
                         editStatus();
                         saveBook();
                         saveTransaction();
@@ -365,7 +453,6 @@ TRANSACTION *q;
                     case 1:
                     {
                         ShowConsoleCursor(1);
-                       // searchTransac();
                         searchTransaction();
                         break;
                     }
@@ -373,7 +460,6 @@ TRANSACTION *q;
                     case 2:
                     {
                        ShowConsoleCursor(1);
-                      // dispTransac();
                        displayAllTransaction(q=headTransaction, 0, NULL);
                         break;
                     }

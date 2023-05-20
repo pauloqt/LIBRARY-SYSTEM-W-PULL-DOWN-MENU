@@ -4,6 +4,7 @@
 //The getInfo() function prompts the user to enter information about a book, including all details from the Struct book. It stores this information in the infoBook struct variable.
 
 void getInfoBook(){
+
     system("cls");
     dispAdd();
     fflush stdin;
@@ -25,10 +26,10 @@ void getInfoBook(){
     gotoxy(40,19);printf("ENTER SHELF NO.: ");
     gotoxy(60,19);scanf("%d", &infoBook.shelfNo);
     gotoxy(40,20);printf("ENTER TOTAL NO. STOCK: ");
-    gotoxy(67,21);scanf("%d", &infoBook.totalStock);
-    gotoxy(40,22);printf("ENTER TOTAL NO. OF BORROWER: ");
-    gotoxy(70,22);scanf("%d", &infoBook.borrower);
-    system("pause");
+    gotoxy(67,20);scanf("%d", &infoBook.totalStock);
+    gotoxy(40,21);printf("ENTER TOTAL NO. OF BORROWER: ");
+    gotoxy(70,21);scanf("%d", &infoBook.borrower);
+    gotoxy(40,24);system("pause");
 }
 
 
@@ -260,6 +261,11 @@ char* categoryPointer;
     gotoxy(38,12);printf("\033[31mENTER SEARCH CATEGORY [1-5]: ");
     gotoxy(67,12);scanf("%d", &searchCategory);
 
+    if(searchCategory<1 || searchCategory>5){
+        gotoxy(30, 16); printf("SELECT FROM 1-5 ONLY!");
+        gotoxy(30, 17); system("pause");
+    }
+
     fflush stdin;
     system("cls");
     printf("\033[0m");
@@ -444,7 +450,6 @@ hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
                     case 0:
                     {
                         ShowConsoleCursor(1);//SET CURSON ON
-                        dispAdd();
                         getInfoBook();addBook(); saveBook();
                         break;
                     }

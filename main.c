@@ -28,6 +28,7 @@
 
 
 HWND WINAPI GetConsoleWindowNT(void);
+char loggedInID[20];
 
 //The gotoxy() function is used to position the console cursor to a specified location, with the x-coordinate and y-coordinate specified as arguments.
 void gotoxy(int x,int y){   //A function that Sets the fixed place of displays
@@ -125,22 +126,22 @@ hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
                 if(pointer == -1){
                     pointer = 5;
-                    }
+                }
                 break;
+
             }else if(GetAsyncKeyState(VK_DOWN) != 0){
                 ++pointer;
                 if(pointer == 6){
                     pointer = 0;
                 }
-
                 break;
+
             }else if((ch = getch()) == ENTER){
                 switch(pointer){
                     case 0:
                     {
                         ShowConsoleCursor(1);//SET CURSON ON
                         system("cls");
-                        dispAllBooks();
                         displayBook(p=headBook, 0, NULL);
                         break;
                     }
@@ -148,8 +149,7 @@ hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
                     {
                         ShowConsoleCursor(1);
                         system("cls");
-                        dispSearchBooks();
-                        searchBook();//AFTER MAGPROMPT NG ENTER PAKILAGYAN NG LOADING BEFORE MAG SYSTEM CLS
+                        searchBook();
                         break;
                     }
 
@@ -169,7 +169,7 @@ hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
                     case 4:
                     {
                         ShowConsoleCursor(1);
-                        return; //return
+                        return;
                         break;
                     }
                     case 5:
@@ -350,7 +350,6 @@ hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
                     {
                         ShowConsoleCursor(1);
                         printf(" EXITING PROGRAM.... ");//PAKILAKIHAN ANG FONT AND MAGLAGAY NG LOADING SA BABA NETO
-                       // TINANGGAL KO NA ANG SYSTEM PAUSE KAPALIT NG LOADING
                         exit(0);
                     }
                   }

@@ -4,6 +4,7 @@
 //The getInfo() function prompts the user to enter information about a book, including all details from the Struct book. It stores this information in the infoBook struct variable.
 
 void getInfoBook(){
+
     system("cls");
     dispAdd();
     fflush stdin;
@@ -166,11 +167,6 @@ int updateInt;
             printf("\033[0m");scanf("%d", &updateInt);
         }
 
-        /*
-        if(info==7 || info==8 || info==9)
-            scanf("%d", &updateInt);
-        else{scanf("%[^\n]", update);}*/
-
         gotoxy(30,12); printf("_____________________________________________________________________________________________________________________\n");
         gotoxy(30,14); printf("ARE YOU SURE TO UPDATE THE RECORD OF %s?", p->title);
         gotoxy(30,16); printf("[1] YES [2] NO : ");
@@ -239,26 +235,34 @@ void searchBook(){
 BOOK *p;
 char toSearch[51];
 char text[51];
-int i, searchCategory;
+int i, searchCategory=0;
 char* categoryPointer;
 
-    system("cls");
-    dispSearchBooks();
-    gotoxy(30,10);printf("\033[31m ___________________________________________________________________________________________________________________");
-    gotoxy(30,11);printf("|   _                                                                                                               |");
-    gotoxy(30,12);printf("|  (_)                                                                                                              |");
-    gotoxy(30,13);printf("|    \\                                                                                                              |");
-    gotoxy(30,14);printf("|___________________________________________________________________________________________________________________|");
-    printf("\033[0m");
+    while(searchCategory<1 || searchCategory>5){
+        system("cls");
+        printf("\033[0m");
+        dispSearchBooks();
+        gotoxy(30,10);printf("\033[31m ___________________________________________________________________________________________________________________");
+        gotoxy(30,11);printf("|   _                                                                                                               |");
+        gotoxy(30,12);printf("|  (_)                                                                                                              |");
+        gotoxy(30,13);printf("|    \\                                                                                                              |");
+        gotoxy(30,14);printf("|___________________________________________________________________________________________________________________|");
+        printf("\033[0m");
 
-    gotoxy(76,20);printf("SEARCH BY CATEGORY");
-    gotoxy(76,21);printf("[1] Book Title");
-    gotoxy(76,22);printf("[2] Author");
-    gotoxy(76,23);printf("[3] Year Published");
-    gotoxy(76,24);printf("[4] Material");
-    gotoxy(76,25);printf("[5] Topic Category");
-    gotoxy(38,12);printf("\033[31mENTER SEARCH CATEGORY [1-5]: ");
-    gotoxy(67,12);scanf("%d", &searchCategory);
+        gotoxy(76,20);printf("SEARCH BY CATEGORY");
+        gotoxy(76,21);printf("[1] Book Title");
+        gotoxy(76,22);printf("[2] Author");
+        gotoxy(76,23);printf("[3] Year Published");
+        gotoxy(76,24);printf("[4] Material");
+        gotoxy(76,25);printf("[5] Topic Category");
+        gotoxy(38,12);printf("\033[31mENTER SEARCH CATEGORY [1-5]: ");
+        gotoxy(67,12);scanf("%d", &searchCategory);
+
+        if(searchCategory<1 || searchCategory>5){
+            gotoxy(30, 16); printf("SELECT FROM 1-5 ONLY!");
+            gotoxy(30, 17); system("pause");
+        }
+    }
 
     fflush stdin;
     system("cls");
@@ -444,7 +448,6 @@ hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
                     case 0:
                     {
                         ShowConsoleCursor(1);//SET CURSON ON
-                        dispAdd();
                         getInfoBook();addBook(); saveBook();
                         break;
                     }

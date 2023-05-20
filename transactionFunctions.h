@@ -10,7 +10,7 @@ typedef struct transaction{
 
 TRANSACTION *headTransaction, infoTransaction;
 
-void borrowBook(char ID[7]);
+void borrowBook();
 int addTransaction();
 void searchTransaction();
 void displayAllTransaction(struct transaction *p, int start, int end);
