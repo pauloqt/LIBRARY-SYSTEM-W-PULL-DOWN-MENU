@@ -397,6 +397,19 @@ BOOK *p;
     fclose(fp);
 }
 
+/*void recommendBook(){
+TRANSACTION *pTransac;
+int categCount, authorCount;
+char mostCateg, mostAuthor;
+
+    pTransac=headTransaction
+    while(p!=NULL){
+        if(strcmp(pTransac->TUP_ID, loggedInID)==0){    //if same student
+            if(p->)
+        }
+    }
+}*/
+
 void manageBookMenu(){
 BOOK *p;
 setFontStyle(18);

@@ -77,7 +77,20 @@ TRANSACTION *q, *p, *n;
     *n= infoTransaction;                           //copy info of the book to n.
 
     p=q=headTransaction;                           //point all pointers to head.
-    while(p!=NULL && strcmp(n->status, p->status)<0){
+    headTransaction=n;                             //every transaction ay sa unahan i-a-add para chronological order.
+    n->nxt=p;
+}
+
+//The addTransaction() function adds a new node to the transaction linked list in alphabetical order, with the info struct as its data.
+int addRetrievedTransaction(){
+TRANSACTION *q, *p, *n;
+
+    n= (TRANSACTION*) malloc(sizeof(TRANSACTION));    //allocates memory to n.
+    *n= infoTransaction;                           //copy info of the book to n.
+
+    p=q=headTransaction;                           //point all pointers to head
+
+    while(p!=NULL){
         q=p;
         p=p->nxt;
     }
@@ -88,7 +101,7 @@ TRANSACTION *q, *p, *n;
     else{           //if to insert in between or at the end.
         q->nxt=n;
     }
-    n->nxt=p;  //insert p at the end which contains next node or NULL.
+    n->nxt=p;  //insert p at the end which contains next node or NULL.*/
 }
 
 ////The searchTransaction() function prompts the user to enter a search a string, and then searches the linked list for any transaction whose title, author, or category matches the search term. It displays information about any matching books.
@@ -206,7 +219,6 @@ int i;
         gotoxy(122,12+i); printf("%s", p->dateToReturn);
         gotoxy(138,12+i); printf("%s", p->librarian);
         gotoxy(152,12+i); printf("%s", p->status);
-
         p=p->nxt;
     }
     gotoxy(3,12+i+1); printf("\033[31m____________________________________________________________________________________________________________________________________________________\n");
@@ -258,7 +270,7 @@ TRANSACTION *p;
             fscanf(fp, "%[^\n]", &infoTransaction.status);
 
             if(!feof(fp)){
-                addTransaction();
+                addRetrievedTransaction();
                 fflush stdin;
             }
             else{break;}

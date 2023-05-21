@@ -12,6 +12,7 @@ TRANSACTION *headTransaction, infoTransaction;
 
 void borrowBook();
 int addTransaction();
+int addRetrievedTransaction();
 void searchTransaction();
 void displayAllTransaction(struct transaction *p, int start, int end);
 void saveTransaction();
